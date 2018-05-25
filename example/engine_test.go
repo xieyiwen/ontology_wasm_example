@@ -57,7 +57,7 @@ func TestHello(t *testing.T) {
 	}
 }
 
-
+//普通方法，并注册strconcat方法
 func TestHelloRegister(t *testing.T) {
 	//register srconcat
 	service.Register("strconcat", func(engine *exec.ExecutionEngine) (bool, error) {
@@ -95,6 +95,7 @@ func TestHelloRegister(t *testing.T) {
 }
 
 
+//测试hello的合约调用
 func TestHelloContract(t *testing.T) {
 	code,err := ioutil.ReadFile("../data/helloContract.wasm")
 	if err != nil {
@@ -114,11 +115,11 @@ func TestHelloContract(t *testing.T) {
 	//bf.WriteString("envin")
 
 	//serialization.WriteString(bf,"|")
+	//在合约中调用了service的ReadStringParam函数，这个函数只能读取被serialization序列化过的参数
 	serialization.WriteString(bf,"envin")
 
 	fmt.Printf("input:%s \n",bf.String())
 	fmt.Printf("input:%v \n",bf.Bytes())
-	//bs :=
 
 	//service provider strconcat
 	engine := exec.NewExecutionEngine(service,"wasm_example")
@@ -138,6 +139,7 @@ func TestHelloContract(t *testing.T) {
 
 	fmt.Println("retbytes is " + string(retbytes))
 }
+//合约中调用注册的方法，并操作内存获取参数并存储结果
 func TestHelloRegisterContract(t *testing.T) {
 	//register srconcat
 	service.Register("strconcat", func(engine *exec.ExecutionEngine) (bool, error) {
