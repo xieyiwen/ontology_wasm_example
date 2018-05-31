@@ -23,17 +23,8 @@ func TestHelloRegisterContract(t *testing.T) {
 		return
 	}
 
-
-	par := make([]exec.Param, 2)
-	par[0] = exec.Param{Ptype: "int", Pval: "20"}
-	par[1] = exec.Param{Ptype: "int", Pval: "30"}
-
-	//p := []int{20,30}
-	//jbytes, err := json.Marshal(p)
-
 	bf := bytes.NewBufferString("get")
 	bf.WriteString("|")
-	//bf.Write(jbytes)
 
 	serialization.WriteString(bf, "envin")
 
