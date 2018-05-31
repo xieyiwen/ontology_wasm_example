@@ -6,6 +6,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 	"github.com/ontio/ontology-wasm/memory"
 	"fmt"
+	"github.com/ontio/ontology_wasm_example/utils"
 )
 
 func Register(service *exec.InteropService) {
@@ -71,7 +72,7 @@ func putStorage(engine *exec.ExecutionEngine) (bool, error) {
 }
 
 func save (key interface{},value interface{}) {
-	coll := GetMongoDB().C("contract_data")
+	coll := utils.GetMongoDB().C("contract_data")
 	if count, err := coll.Find(bson.M{"key": key}).Count(); err != nil {
 		fmt.Printf("save data error:%s\n",err.Error())
 	} else {

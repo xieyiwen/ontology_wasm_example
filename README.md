@@ -1,5 +1,6 @@
 # ontology_wasm_example
-ontology_wasm_example
+ontology_wasm_example   
+move to :github.com/xieyiwen/ontology-wasm/example
 
 
 ### how to generator .wasm file

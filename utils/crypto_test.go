@@ -4,7 +4,7 @@ import (
 	"testing"
 	"io/ioutil"
 	"fmt"
-	"github.com/ontio/ontology_wasm_example/util"
+	"github.com/ontio/ontology_wasm_example/utils"
 )
 
 func TestRipemd160(t *testing.T) {

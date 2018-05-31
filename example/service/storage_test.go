@@ -47,3 +47,8 @@ func TestHelloRegisterContract(t *testing.T) {
 	fmt.Println("retbytes is " + string(retbytes))
 }
 
+
+func TestCallContract (t *testing.T) {
+
+}
+

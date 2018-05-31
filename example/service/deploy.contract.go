@@ -1,1 +1,6 @@
 package storage
+
+
+func DeployContract () {
+
+}
